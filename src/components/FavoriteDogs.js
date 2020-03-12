@@ -1,7 +1,16 @@
 import React from 'react'
+import DogCard from './DogCard'
 
-function FavoriteDogs(props){
-  return <h1>Favorite Dogs</h1>
+function FavoriteDogs({favoriteDogs}){
+  const favoriteDogCards = favoriteDogs.map(dog => <DogCard key={dog.id} dog={dog.dog}/>)
+
+  return(
+    <>
+      <h2>Favorite Dogs</h2>
+      {favoriteDogCards}
+    </>
+  )
+
 }
 
 export default FavoriteDogs

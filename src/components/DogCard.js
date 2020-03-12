@@ -1,8 +1,13 @@
 import React from 'react'
 
-function DogCard({dog}){
+function DogCard({dog, addFavoriteDog}){
+
+  const handleClick = (dog) => {
+        addFavoriteDog(dog)
+    }
+
   return(
-    <div className='dog-card'>
+    <div className='dog-card' onClick={handleClick}>
       <img src={dog.image}/>
       <div className='dog-specs'>
         <h4>{dog.name}</h4>

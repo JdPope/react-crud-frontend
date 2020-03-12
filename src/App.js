@@ -11,7 +11,8 @@ const BASE_URL = `https://dogs-backend.herokuapp.com/dogs`
 
 class App extends React.Component{
   state = {
-    adoptableDogs:[]
+    adoptableDogs:[],
+    favoriteDogs:[]
   }
 
 componentDidMount(){
@@ -20,6 +21,24 @@ componentDidMount(){
     .then(adoptableDogs => this.setState({adoptableDogs}))
 }
 
+// addFavoriteDog = dog =>{
+//   console.log("addFavorite dog")
+//   this.setState({
+//     favoriteDogs: [...this.state.favoriteDogs, dog]
+//   })
+// }
+
+addFavoriteDog = dog => {
+    const dogIds = this.state.favoriteDogs.map(favorite => favorite.id)
+
+    if (!dogIds.includes(dog.id)) {
+      this.setState({
+        favoriteDogs: [...this.state.favoriteDogs, dog]
+      })
+    }
+
+  }
+
 render(){
   return(
     <>
@@ -27,11 +46,14 @@ render(){
     {// <AddDogForm/>
     // <DogCard/>
     // <DogSpec/>
-    // <FavoriteDogs/>
+    //
     //<SearchBar/>
     }
     <Header/>
-    <AdoptableDogs adoptableDogs={this.state.adoptableDogs}/>
+    <AdoptableDogs
+      adoptableDogs={this.state.adoptableDogs}
+      addFavoriteDog={this.addFavoriteDog}/>
+    <FavoriteDogs favoriteDogs={this.state.favoriteDogs}/>
     </>
   )
 }

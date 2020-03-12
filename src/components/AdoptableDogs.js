@@ -1,8 +1,8 @@
 import React from 'react'
 import DogCard from './DogCard'
 
-function AdoptableDogs({adoptableDogs}){
-  const adoptableDogCards = adoptableDogs.map(dog => <DogCard key={dog.id} dog={dog}/>)
+function AdoptableDogs({adoptableDogs, addFavoriteDog}){
+  const adoptableDogCards = adoptableDogs.map(dog => <DogCard key={dog.id} dog={dog} addFavoriteDog={addFavoriteDog} />)
 
   return(
     <>
