@@ -2,7 +2,6 @@ import React from 'react'
 import './App.css'
 import AddDogForm from './components/AddDogForm'
 import AdoptableDogs from './components/AdoptableDogs'
-import DogCard from './components/DogCard'
 import DogSpec from './components/DogSpec'
 import Header from './components/Header'
 import SearchBar from './components/SearchBar'
@@ -25,13 +24,14 @@ render(){
   return(
     <>
     <h1>This is the Dogs App</h1>
-    <AddDogForm/>
-    <AdoptableDogs/>
-    <DogCard/>
-    <DogSpec/>
-    <FavoriteDogs/>
+    {// <AddDogForm/>
+    // <DogCard/>
+    // <DogSpec/>
+    // <FavoriteDogs/>
+    //<SearchBar/>
+    }
     <Header/>
-    <SearchBar/>
+    <AdoptableDogs adoptableDogs={this.state.adoptableDogs}/>
     </>
   )
 }
